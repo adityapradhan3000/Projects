@@ -1,5 +1,3 @@
-# Industry Management Web Application
-
 # Automotive Manufacturing Digital Logbook
 
 This project is a full-stack web application designed to replace traditional paper logbooks in automotive manufacturing.  Built with JavaScript, EJS templates, Node.js, Express.js, and PostgreSQL, the application provides a centralized system for recording spare parts purchases and issues, vehicle maintenance details, service records, and vehicle working hours.  Key features include automatic table generation for each entry type and export functionality to Excel and PDF, enabling efficient record-keeping and reporting.
