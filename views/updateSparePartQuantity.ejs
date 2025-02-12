@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EDIT SPARE QUANTITY</title>
+  </head>
+  <body>
+    <h1>EDIT SPARE PART QUANTITY</h1>
+    <h2>Enter number of issued spare part quantity to update the inventory</h2>
+    <form action="/update_spare_part_quantity" class="form1" method="POST">
+      <label>Select the bill Number</label> <br />
+      <select name="bill_number">
+        <% billNumbers.forEach(billNumber => { %>
+        <option value="<%= billNumber %>"><%= billNumber %></option>
+        <% }); %></select
+      ><br />
+      <label>Select the type of spare part</label><br />
+      <select name="type_of_spare_part">
+        <% sparePartTypes.forEach(part => { %>
+        <option value="<%= part %>"><%= part %></option>
+        <% }); %></select
+      ><br />
+      <label>Enter the number of issued part</label><br />
+      <input type="number" name="quantity_to_add" required /><br />
+      <input type="hidden" name="updateType" value="quantity" />
+      <button type="submit">Update Quantity</button>
+    </form> <br>
+    <a href="/showdata">Show Updated Data</a>
+
+    <style>
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: grey;
+        color: black;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        margin-left: 670px;
+      }
+
+      button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: grey;
+        color: black;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        font-size: large;
+        font-weight: 500;
+      }
+
+      label {
+            font-size: larger;
+            text-align: center;
+        }
+
+        label, input, select, button {
+            display: block; /* Make elements stack vertically */
+            margin-bottom: 10px;
+            width: 100%; /* Make input fields full width */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        select {
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+        }
+
+        input {
+            height: 50px;
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+            font-size: large;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        select{
+            height: 50px;
+            text-align: center;
+            font-size: larger;
+        }
+
+        .form1 {
+            width: 300px; 
+            margin: 0 auto; 
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+    </style>
+
+  </body>
+</html>

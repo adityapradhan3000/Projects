@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEHICLE USAGE REPORT</title>
+</head>
+<body>
+    <h1>VEHICLE USAGE REPORT</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Date of Usage</th>
+                <th>Vehicle Serial Number</th>
+                <th>Category of Vehicle</th>
+                <th>IN TIME</th>
+                <th>OUT TIME</th>
+                <th>Total Usage of Vehicle (Interval Format)</th> 
+                <th>IN READING</th>
+                <th>OUT READING</th>
+                <th>Fuel Reading(Before Use)</th>
+                <th>Fuel Reading(After Use)</th>
+                <th>Total Fuel Usage(In Litres)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% usageReport.forEach(item => { %>
+                <tr>
+                    <td><%= item.usage_date_formatted %></td>
+                    <td><%= item.vehicle_serial_number %></td>
+                    <td><%= item.vehicle_category %></td>
+                    <td><%= item.time_in %></td>
+                    <td><%= item.time_out %></td>
+                    <td><%= item.total_usage_time_formatted %></td> 
+                    <td><%= item.reading_in %></td>
+                    <td><%= item.reading_out %></td>
+                    <td><%= item.fuel_input %></td>
+                    <td><%= item.fuel_output %></td>
+                    <td><%= item.usage_of_fuel %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <a href="/">Go Back</a><br>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: grey;
+        color: black;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        }
+
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        table {
+            width: 80%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd; /* Light gray borders for cells */
+            padding: 8px 12px; /* Comfortable padding */
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2; /* Light gray background for header */
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Alternating row colors */
+        }
+
+        a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: grey;
+        color: black;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        }
+
+        button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: grey;
+        color: black;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        cursor: pointer;
+        }
+    </style>
+
+<button onclick="window.print()">Print the table</button><br>
+<button id="csvdownload">Download table (CSV)</button>
+
+<script>
+    const downloadButton = document.getElementById('csvdownload');
+
+    downloadButton.addEventListener('click', () => {
+    const table = document.querySelector('table');
+    const rows = table.querySelectorAll('tr');
+
+    let csvContent = "data:text/csv;charset=utf-8,";
+
+    rows.forEach(row => {
+        const rowData = [];
+        const cells = row.querySelectorAll('th, td'); // Select both th and td
+        cells.forEach(cell => {
+            rowData.push(cell.innerText);
+        });
+        csvContent += rowData.join(',') + '\r\n';
+    });
+
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', 'vehicle_usage_report.csv');
+    document.body.appendChild(link);
+    link.click();
+
+});
+</script>
+</body>
+</html>

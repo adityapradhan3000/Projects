@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISSUE SPARE PART</title>
+</head>
+<body>
+    <h1>ISSUE SPARE PART</h1>
+    <form action="/issue_spare_part" method="POST">
+        <label>Select the bill Number</label> <br />
+      <select name="bill_number">
+        <% billNumbers.forEach(billNumber => { %>
+        <option value="<%= billNumber %>"><%= billNumber %></option>
+        <% }); %></select
+      ><br />
+      <label>Enter the Date of Issue</label><br>
+      <input type="date" name="date_of_issue"><br>
+      <label>Select the type of spare part</label><br />
+      <select name="type_of_spare_part">
+        <% sparePartTypes.forEach(part => { %>
+        <option value="<%= part %>"><%= part %></option>
+        <% }); %></select
+      ><br />
+      <label>Select the name of the spare part</label><br>
+      <select name="name_of_the_spare_part">
+        <% sparePartNameResult.forEach(sparepartName => { %>
+            <option value="<%= sparepartName %>"><%= sparepartName %></option>
+      <% }) %>
+      </select><br>      
+      <label>Select the price of spare part</label><br>
+      <select name="price_of_each_part">
+        <% sparePartPriceResult.forEach(sparepartPrice => { %>
+            <option value="<%= sparepartPrice %>"><%= sparepartPrice %></option>
+         <% }) %>
+      </select><br>
+      <button type="submit">Issue the spare part</button>
+    </form><br>
+    <a href="/">Go back</a>
+
+    <style>
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: grey;
+        color: black;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        margin-left: 700px;
+        }
+
+      h1 {
+            text-align: center;
+        }
+
+        form {
+            width: 300px; 
+            margin: 0 auto; 
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+
+        label, input, select, button {
+            display: block; /* Make elements stack vertically */
+            margin-bottom: 10px;
+            width: 100%; /* Make input fields full width */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        select {
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+            height: 50px;
+            text-align: center;
+            font-size: larger;
+            border-radius: 5px;
+        }
+
+        label {
+            font-size: larger;
+            text-align: center;
+        }
+
+        input {
+            height: 50px;
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+            font-size: large;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        button {
+            border-radius: 5px;
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+            height: 35px;
+            cursor: pointer;
+            font-size: larger;
+        }
+    </style>
+</body>
+</html>

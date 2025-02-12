@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARE PART ISSUE DATA</title>
+</head>
+<body>
+    <h1>SPARE PARTS ISSUE DATA</h1><br>
+    <table>
+        <thead>
+            <tr>
+                <th>Bill Number</th>
+                <th>Type of Spare Part</th>
+                <th>Number of Spare Parts issued</th>
+                <th>Name of the Spare Parts</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <% issuedata.forEach(item => { %>
+                <tr>
+                    <td><%= item.bill_number %></td>
+                    <td><%= item.type_of_spare_part %></td>
+                    <td><%= item.number_of_spare_part_issued %></td>
+                    <td><%= item.name_of_the_spare_part %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <a href="/">Go back</a><br> <br>
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        table {
+            width: 80%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd; /* Light gray borders for cells */
+            padding: 8px 12px; /* Comfortable padding */
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2; /* Light gray background for header */
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Alternating row colors */
+        }
+
+        a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: grey;
+        color: black;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        }
+
+        button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: grey;
+        color: black;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        cursor: pointer;
+        }
+    </style>
+
+    <button onclick="window.print()">Print the table</button><br>
+    <button id="csvdownload">Download table (CSV)</button>
+
+    <script>
+        const downloadButton = document.getElementById('csvdownload');
+
+        downloadButton.addEventListener('click', () => {
+        const table = document.querySelector('table');
+        const rows = table.querySelectorAll('tr');
+
+        let csvContent = "data:text/csv;charset=utf-8,";
+
+        rows.forEach(row => {
+            const rowData = [];
+            const cells = row.querySelectorAll('th, td'); // Select both th and td
+            cells.forEach(cell => {
+                rowData.push(cell.innerText);
+            });
+            csvContent += rowData.join(',') + '\r\n';
+        });
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement('a');
+        link.setAttribute('href', encodedUri);
+        link.setAttribute('download', 'issue_spare_part_table.csv');
+        document.body.appendChild(link);
+        link.click();
+
+    });
+    </script>
+</body>
+</html>

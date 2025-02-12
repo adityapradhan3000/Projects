@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEHICLE DESCIRPTION</title>
+</head>
+<body>
+    <h1 id="headingone">VEHICLE CATEGORY DESCIRPTION</h1>
+    <form action="/upload_vehicle_description", method="POST">
+        <label for="category">Category</label>
+        <select name="category" id="category" required>
+            <option value='a'>A</option>
+            <option value='b'>B</option>
+            <option value='c'>C</option>
+            <option value='d'>D</option>
+            <option value='e'>E</option>
+        </select>
+        <br>
+        <br>
+        <label for="model_number">Model Number</label><br>
+        <input type="text" id="model_number" name="model_number" required><br><br>
+
+        <label for="registration_number">Registration Number</label><br>
+        <input type="text" id="registration_number" name="registration_number" required><br><br>
+
+        <label for="vehicle_type">Vehicle Type</label>
+        <select id="type" name="vehicle_type" required>
+            <option value="purchased">purchased</option>
+            <option value="rented">rented</option>
+        </select><br><br>
+
+        <button id="submitButton" type="submit">UPDATE</button>
+
+    </form><br>
+    <a href="/">Go back</a>
+
+    <style>
+        a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: grey;
+        color: black;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        margin-left: 700px;
+        }
+
+        #headingone{
+            text-align: center;
+        }
+
+        label {
+            font-size: larger;
+            text-align: center;
+        }
+
+        label, input, select, button {
+            display: block; /* Make elements stack vertically */
+            margin-bottom: 10px;
+            width: 100%; /* Make input fields full width */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        select {
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+        }
+
+        input {
+            height: 50px;
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+            font-size: large;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        select{
+            height: 50px;
+            text-align: center;
+            font-size: larger;
+        }
+
+        form {
+            width: 300px; 
+            margin: 0 auto; 
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+
+        button {
+            border-radius: 5px;
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+            height: 35px;
+            cursor: pointer;
+            font-size: larger;
+        }
+    </style>
+</body>
+</html>

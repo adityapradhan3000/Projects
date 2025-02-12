@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SPARE PART PURCHASE ENTRY</title>
+</head>
+<body>
+    <h1>SPARE PARTS DESCRIPTION FORM</h1>
+    <form action="/upload_spare_parts_description" method="POST">
+        <label>Bill Number</label><br>
+        <input type="text" name="bill_number" required><br>
+        <label>Supplier Name</label><br>
+        <input type="text" name="supplier_name"><br>
+        <label>Spare Part Purchased for particular Vehicle</label><br>
+        <select name="spare_part_purchased_for_vehicle">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+        </select><br>
+        <label>Number of Spare Parts Purchased</label><br> 
+        <input type="number" name="number_of_spare_part_purchased" required><br>
+        <label>Spare Part Unique ID</label>
+        <input type="text" name="spare_part_unique_id" required><br>
+        <label>Spare Part Category</label><br>
+        <select name="spare_part_category">
+            <option value="Mechanical">Mechanical</option>
+            <option value="Electrical">Electrical</option>
+        </select><br>
+        <label>Price of Each Part</label><br> 
+        <input type="number" step="0.01" name="price_of_each_part" required><br>
+        <label>Date of Purchase</label><br> 
+        <input type="date" name="date_of_purchase"><br>
+        <label>Type of Spare Part</label><br>
+        <input type="text" name="type_of_spare_part"><br>
+        <label>Enter the name of the Spare part</label><br>
+        <input type="text" name="name_of_the_spare_part">
+        <button type="submit">UPDATE</button><br>
+        <a href="/">Go back</a>
+    </form>
+    
+
+    <style>
+        a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: grey;
+        color: black;
+        border-radius: 5px;
+        border-width: 2px;
+        border-style: solid;
+        margin-left: 100px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            width: 300px; 
+            margin: 0 auto; 
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+
+        label, input, select, button {
+            display: block; /* Make elements stack vertically */
+            margin-bottom: 10px;
+            width: 100%; /* Make input fields full width */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        select {
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+            height: 50px;
+            text-align: center;
+            font-size: larger;
+            border-radius: 5px;
+        }
+
+        label {
+            font-size: larger;
+            text-align: center;
+        }
+
+        input {
+            height: 50px;
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+            font-size: large;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        button {
+            border-radius: 5px;
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+            height: 35px;
+            cursor: pointer;
+            font-size: larger;
+        }
+    </style>
+</body>
+</html>

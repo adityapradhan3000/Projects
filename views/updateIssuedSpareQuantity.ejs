@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPDATE THE ISSUED SPARE PART QUANTITY</title>
+</head>
+<body>
+    <h1>UPDATE THE ISSUED SPARE PART QUANTITY</h1>
+    <form action="/update_issued_spare_part_quantity", method="POST">
+        <label>Select the Bill Number</label><br>
+        <select name="bill_number" required>
+            <% selectedBillNumber.forEach(billnumber => { %>
+                <option value="<%= billnumber %>"><%= billnumber %></option>
+           <% }) %>
+        </select><br>
+        <label>Select the Issued Spare Part</label><br>
+        <select name="type_of_spare_part" required>
+            <% selectedSparePart.forEach(sparePart => { %>
+                <option value="<%= sparePart %>"><%= sparePart %></option>
+           <% }) %>
+        </select><br>
+    </form>
+</body>
+</html>
